@@ -1,0 +1,303 @@
+#|
+$Source $Yail
+|#
+
+(define-form appinventor.ai_jeantinguelyawais.easyTPF.Screen1 Screen1)
+(require <com.google.youngandroid.runtime>)
+
+(def g$code "00")
+(def (p$showDialogToConfirm $code)  (set-var! g$code (lexical-value $code))(call-component-method 'Notification 'ShowChooseDialog (*list-for-runtime* "Valider l'acc\u00e8s au service payant 873!"  "Confirmer votre choix"  "Annuler"  (call-yail-primitive string-append (*list-for-runtime* "Confirmer " (lexical-value $code) ) '(text text ) "join")  #f) '(text text text text boolean)))
+;;; Screen1
+
+(do-after-form-creation (set-and-coerce-property! 'Screen1 'AboutScreen "Envoyer des sms au 873 pour obtenir vos tickets de bus dans la r\u00e9gion 10 ou  30 du canton de Fribourg - Attention, cette application acc\u00e8de \u00e0 un service payant" 'text)
+ (set-and-coerce-property! 'Screen1 'AlignHorizontal 3 'number)
+ (set-and-coerce-property! 'Screen1 'CloseScreenAnimation "fade" 'text)
+ (set-and-coerce-property! 'Screen1 'Icon "easytpf_logo.png" 'text)
+ (set-and-coerce-property! 'Screen1 'OpenScreenAnimation "fade" 'text)
+ (set-and-coerce-property! 'Screen1 'ScreenOrientation "portrait" 'text)
+ (set-and-coerce-property! 'Screen1 'Title "easyTPF" 'text)
+ (set-and-coerce-property! 'Screen1 'VersionCode 2 'number)
+ (set-and-coerce-property! 'Screen1 'VersionName "1.2" 'text)
+)
+
+;;; Instructions
+
+(add-component Screen1 Label Instructions 
+(set-and-coerce-property! 'Instructions 'BackgroundColor #xFFCCCCCC 'number)
+
+(set-and-coerce-property! 'Instructions 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'Instructions 'FontSize 18 'number)
+
+(set-and-coerce-property! 'Instructions 'Text "Appuyez sur un bouton ci-dessous pour envoyer un sms payant au 873" 'text)
+
+(set-and-coerce-property! 'Instructions 'TextAlignment 1 'number)
+
+(set-and-coerce-property! 'Instructions 'Width 265 'number)
+
+(set-and-coerce-property! 'Instructions 'Height 85 'number)
+
+)
+
+;;; Label5
+
+(add-component Screen1 Label Label5 
+(set-and-coerce-property! 'Label5 'Text "10 = Fribourg, 30 = Bulle, R = r\u00e9duit, J = journ\u00e9e" 'text)
+
+)
+
+;;; TableArrangement1
+
+(add-component Screen1 TableArrangement TableArrangement1 
+(set-and-coerce-property! 'TableArrangement1 'Columns 4 'number)
+
+(set-and-coerce-property! 'TableArrangement1 'Rows 3 'number)
+
+)
+
+;;; b_10
+
+(add-component TableArrangement1 Button b_10 
+(set-and-coerce-property! 'b_10 'BackgroundColor #xFFFFC800 'number)
+
+(set-and-coerce-property! 'b_10 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_10 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_10 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_10 'Text "10" 'text)
+
+(set-and-coerce-property! 'b_10 'Column 0 'number)
+
+(set-and-coerce-property! 'b_10 'Row 0 'number)
+
+)
+
+(define-event b_10 Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "10"))
+;;; b_10r
+
+(add-component TableArrangement1 Button b_10r 
+(set-and-coerce-property! 'b_10r 'BackgroundColor #xFFFFFF00 'number)
+
+(set-and-coerce-property! 'b_10r 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_10r 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_10r 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_10r 'Text "10R" 'text)
+
+(set-and-coerce-property! 'b_10r 'Column 1 'number)
+
+(set-and-coerce-property! 'b_10r 'Row 0 'number)
+
+)
+
+(define-event b_10r Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "10R"))
+;;; b_j30r
+
+(add-component TableArrangement1 Button b_j30r 
+(set-and-coerce-property! 'b_j30r 'BackgroundColor #xFFFFFF00 'number)
+
+(set-and-coerce-property! 'b_j30r 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_j30r 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_j30r 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_j30r 'Text "J30R" 'text)
+
+(set-and-coerce-property! 'b_j30r 'Column 3 'number)
+
+(set-and-coerce-property! 'b_j30r 'Row 2 'number)
+
+)
+
+(define-event b_j30r Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "J30R"))
+;;; Label1
+
+(add-component TableArrangement1 Label Label1 
+(set-and-coerce-property! 'Label1 'Text "2.70 CHF" 'text)
+
+(set-and-coerce-property! 'Label1 'Column 0 'number)
+
+(set-and-coerce-property! 'Label1 'Row 1 'number)
+
+)
+
+;;; Label2
+
+(add-component TableArrangement1 Label Label2 
+(set-and-coerce-property! 'Label2 'Text "2.00 CHF" 'text)
+
+(set-and-coerce-property! 'Label2 'Column 1 'number)
+
+(set-and-coerce-property! 'Label2 'Row 1 'number)
+
+)
+
+;;; Label3
+
+(add-component TableArrangement1 Label Label3 
+(set-and-coerce-property! 'Label3 'Text "8.80 CHF" 'text)
+
+(set-and-coerce-property! 'Label3 'Column 2 'number)
+
+(set-and-coerce-property! 'Label3 'Row 1 'number)
+
+)
+
+;;; Label4
+
+(add-component TableArrangement1 Label Label4 
+(set-and-coerce-property! 'Label4 'Text "5.70 CHF" 'text)
+
+(set-and-coerce-property! 'Label4 'Column 3 'number)
+
+(set-and-coerce-property! 'Label4 'Row 1 'number)
+
+)
+
+;;; b_j10r
+
+(add-component TableArrangement1 Button b_j10r 
+(set-and-coerce-property! 'b_j10r 'BackgroundColor #xFFFFFF00 'number)
+
+(set-and-coerce-property! 'b_j10r 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_j10r 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_j10r 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_j10r 'Text "J10R" 'text)
+
+(set-and-coerce-property! 'b_j10r 'Column 3 'number)
+
+(set-and-coerce-property! 'b_j10r 'Row 0 'number)
+
+)
+
+(define-event b_j10r Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "J10R"))
+;;; b_30
+
+(add-component TableArrangement1 Button b_30 
+(set-and-coerce-property! 'b_30 'BackgroundColor #xFFFFC800 'number)
+
+(set-and-coerce-property! 'b_30 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_30 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_30 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_30 'Text "30" 'text)
+
+(set-and-coerce-property! 'b_30 'Column 0 'number)
+
+(set-and-coerce-property! 'b_30 'Row 2 'number)
+
+)
+
+(define-event b_30 Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "30"))
+;;; b_j30
+
+(add-component TableArrangement1 Button b_j30 
+(set-and-coerce-property! 'b_j30 'BackgroundColor #xFFFFC800 'number)
+
+(set-and-coerce-property! 'b_j30 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_j30 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_j30 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_j30 'Text "J30" 'text)
+
+(set-and-coerce-property! 'b_j30 'Column 2 'number)
+
+(set-and-coerce-property! 'b_j30 'Row 2 'number)
+
+)
+
+(define-event b_j30 Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "J30"))
+;;; b_j10
+
+(add-component TableArrangement1 Button b_j10 
+(set-and-coerce-property! 'b_j10 'BackgroundColor #xFFFFC800 'number)
+
+(set-and-coerce-property! 'b_j10 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_j10 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_j10 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_j10 'Text "J10" 'text)
+
+(set-and-coerce-property! 'b_j10 'Column 2 'number)
+
+(set-and-coerce-property! 'b_j10 'Row 0 'number)
+
+)
+
+(define-event b_j10 Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "J10"))
+;;; b_30r
+
+(add-component TableArrangement1 Button b_30r 
+(set-and-coerce-property! 'b_30r 'BackgroundColor #xFFFFFF00 'number)
+
+(set-and-coerce-property! 'b_30r 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'b_30r 'FontSize 20 'number)
+
+(set-and-coerce-property! 'b_30r 'Shape 1 'number)
+
+(set-and-coerce-property! 'b_30r 'Text "30R" 'text)
+
+(set-and-coerce-property! 'b_30r 'Column 1 'number)
+
+(set-and-coerce-property! 'b_30r 'Row 2 'number)
+
+)
+
+(define-event b_30r Click()(set-this-form)
+    ((get-var p$showDialogToConfirm) "30R"))
+;;; Rappel
+
+(add-component Screen1 Label Rappel 
+(set-and-coerce-property! 'Rappel 'FontBold #t 'boolean)
+
+(set-and-coerce-property! 'Rappel 'FontSize 12.0 'number)
+
+(set-and-coerce-property! 'Rappel 'FontTypeface 1 'number)
+
+(set-and-coerce-property! 'Rappel 'Text "Le billet doit \u00eatre achet\u00e9 avant la mont\u00e9e dans le v\u00e9hicule.     L'utilisateur doit s\u2018assurer avoir re\u00e7u le SMS de confirmation avant la mont\u00e9e dans le v\u00e9hicule.     Le t\u00e9l\u00e9phone du voyageur doit \u00eatre sous tension durant toute la dur\u00e9e de validit\u00e9 du billet SMS, en cas de contr\u00f4le.     Uniquement valable dans les zones 10 et 30 de Frimobil. " 'text)
+
+(set-and-coerce-property! 'Rappel 'Width 265 'number)
+
+(set-and-coerce-property! 'Rappel 'Height 150 'number)
+
+)
+
+;;; sendSmsTo873
+
+(add-component Screen1 Texting sendSmsTo873 
+(set-and-coerce-property! 'sendSmsTo873 'PhoneNumber "873" 'text)
+
+)
+
+(define-event sendSmsTo873 MessageReceived($number $messageText)(set-this-form)
+    (call-component-method 'Notification 'ShowAlert (*list-for-runtime* (call-yail-primitive string-append (*list-for-runtime* "Nouveau message arriv\u00e9: " (call-yail-primitive string-append (*list-for-runtime* (lexical-value $number) (lexical-value $messageText) ) '(text text ) "join") ) '(text text ) "join")) '(text)))
+;;; Notification
+
+(add-component Screen1 Notifier Notification 
+)
+
+(define-event Notification AfterChoosing($choice)(set-this-form)
+    (if (call-yail-primitive string-contains (*list-for-runtime* (lexical-value $choice) "Confirmer") '(text text) "contains") (begin   (call-component-method 'Notification 'ShowAlert (*list-for-runtime* (call-yail-primitive string-append (*list-for-runtime* " message envoy\u00e9 avec le code " (get-var g$code) ) '(text text ) "join")) '(text))(set-and-coerce-property! 'sendSmsTo873 'Message (get-var g$code) 'text)(call-component-method 'sendSmsTo873 'SendMessage (*list-for-runtime*) '()))))
+(init-runtime)

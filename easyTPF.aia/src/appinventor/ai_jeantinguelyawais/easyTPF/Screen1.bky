@@ -1,0 +1,301 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="global_declaration" inline="false" x="416" y="-517">
+    <title name="NAME">code</title>
+    <value name="VALUE">
+      <block type="text">
+        <title name="TEXT">00</title>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" x="414" y="-475">
+    <mutation>
+      <arg name="code"></arg>
+    </mutation>
+    <title name="NAME">showDialogToConfirm</title>
+    <title name="VAR0">code</title>
+    <statement name="STACK">
+      <block type="lexical_variable_set" inline="false">
+        <title name="VAR">global code</title>
+        <value name="VALUE">
+          <block type="lexical_variable_get">
+            <title name="VAR">code</title>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" inline="false">
+            <mutation component_type="Notifier" method_name="ShowChooseDialog" is_generic="false" instance_name="Notification"></mutation>
+            <title name="COMPONENT_SELECTOR">Notification</title>
+            <value name="ARG0">
+              <block type="text">
+                <title name="TEXT">Valider l'accès au service payant 873!</title>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text">
+                <title name="TEXT">Confirmer votre choix</title>
+              </block>
+            </value>
+            <value name="ARG2">
+              <block type="text">
+                <title name="TEXT">Annuler</title>
+              </block>
+            </value>
+            <value name="ARG3">
+              <block type="text_join" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text">
+                    <title name="TEXT">Confirmer </title>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get">
+                    <title name="VAR">code</title>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ARG4">
+              <block type="logic_boolean">
+                <title name="BOOL">FALSE</title>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="414" y="-221">
+    <mutation component_type="Notifier" instance_name="Notification" event_name="AfterChoosing"></mutation>
+    <title name="COMPONENT_SELECTOR">Notification</title>
+    <statement name="DO">
+      <block type="controls_if" inline="false">
+        <value name="IF0">
+          <block type="text_contains" inline="false">
+            <value name="TEXT">
+              <block type="lexical_variable_get">
+                <title name="VAR">choice</title>
+              </block>
+            </value>
+            <value name="PIECE">
+              <block type="text">
+                <title name="TEXT">Confirmer</title>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method" inline="false">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notification"></mutation>
+            <title name="COMPONENT_SELECTOR">Notification</title>
+            <value name="ARG0">
+              <block type="text_join" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text">
+                    <title name="TEXT"> message envoyé avec le code </title>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get">
+                    <title name="VAR">global code</title>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" inline="false">
+                <mutation component_type="Texting" set_or_get="set" property_name="Message" is_generic="false" instance_name="sendSmsTo873"></mutation>
+                <title name="COMPONENT_SELECTOR">sendSmsTo873</title>
+                <title name="PROP">Message</title>
+                <value name="VALUE">
+                  <block type="lexical_variable_get">
+                    <title name="VAR">global code</title>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method">
+                    <mutation component_type="Texting" method_name="SendMessage" is_generic="false" instance_name="sendSmsTo873"></mutation>
+                    <title name="COMPONENT_SELECTOR">sendSmsTo873</title>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="420" y="38">
+    <mutation component_type="Button" instance_name="b_10" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_10</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">10</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="420" y="150">
+    <mutation component_type="Button" instance_name="b_10r" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_10r</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">10R</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="423" y="248">
+    <mutation component_type="Button" instance_name="b_j10" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_j10</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">J10</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="422" y="350">
+    <mutation component_type="Button" instance_name="b_j10r" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_j10r</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">J10R</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="425" y="451">
+    <mutation component_type="Button" instance_name="b_30" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_30</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">30</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="423" y="566">
+    <mutation component_type="Button" instance_name="b_30r" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_30r</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">30R</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="429" y="676">
+    <mutation component_type="Button" instance_name="b_j30" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_j30</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">J30</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="432" y="778">
+    <mutation component_type="Button" instance_name="b_j30r" event_name="Click"></mutation>
+    <title name="COMPONENT_SELECTOR">b_j30r</title>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" inline="false">
+        <mutation name="showDialogToConfirm">
+          <arg name="code"></arg>
+        </mutation>
+        <title name="PROCNAME">showDialogToConfirm</title>
+        <value name="ARG0">
+          <block type="text">
+            <title name="TEXT">J30R</title>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="429" y="896">
+    <mutation component_type="Texting" instance_name="sendSmsTo873" event_name="MessageReceived"></mutation>
+    <title name="COMPONENT_SELECTOR">sendSmsTo873</title>
+    <statement name="DO">
+      <block type="component_method" inline="false">
+        <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notification"></mutation>
+        <title name="COMPONENT_SELECTOR">Notification</title>
+        <value name="ARG0">
+          <block type="text_join" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text">
+                <title name="TEXT">Nouveau message arrivé: </title>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text_join" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="lexical_variable_get">
+                    <title name="VAR">number</title>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get">
+                    <title name="VAR">messageText</title>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="85" language-version="17"></yacodeblocks>
+</xml>
